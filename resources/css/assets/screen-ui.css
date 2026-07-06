@@ -8,7 +8,7 @@ Last update :
 
 @font-face {
     font-family: 'Shilla_CultureB-Bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/Shilla_CultureB-Bold.woff2') format('woff2');
+    src: url('../../fonts/Shilla_CultureB-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }
@@ -6636,21 +6636,21 @@ aside.list-box:not(:last-of-type) {
 
 @font-face {
     font-family: 'ChosunGs';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+    src: url('../../fonts/ChosunGs.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GowunBatang-bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    src: url('../../fonts/GowunBatang-Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GowunBatang-regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    src: url('../../fonts/GowunBatang-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -7752,8 +7752,8 @@ aside.list-box:not(:last-of-type) {
 
 /* @font-face {
     font-family: 'NanumMyeongjo';
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjo.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjo.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjo.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjo.ttf) format("truetype");
+    src: url(../../fonts/NanumMyeongjo.eot);
+    src: url(../../fonts/NanumMyeongjo.eot) format("embedded-opentype"), url(../../fonts/NanumMyeongjo.woff) format("woff"), url(../../fonts/NanumMyeongjo.ttf) format("truetype");
     font-style: normal;
     font-weight: 500;
     unicode-range: U+0-10FFF, U+4E00-9FBF;
@@ -7761,8 +7761,8 @@ aside.list-box:not(:last-of-type) {
 
 @font-face {
     font-family: 'NanumMyeongjo';
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjoBold.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjoBold.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjoBold.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjoBold.ttf) format("truetype");
+    src: url(../../fonts/NanumMyeongjoBold.eot);
+    src: url(../../fonts/NanumMyeongjoBold.eot) format("embedded-opentype"), url(../../fonts/NanumMyeongjoBold.woff) format("woff"), url(../../fonts/NanumMyeongjoBold.ttf) format("truetype");
     font-style: normal;
     font-weight: 600;
     unicode-range: U+0-10FFF, U+4E00-9FBF;
@@ -7770,8 +7770,8 @@ aside.list-box:not(:last-of-type) {
 
 @font-face {
     font-family: 'NanumMyeongjo';
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjoExtraBold.eot);
-    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjoExtraBold.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjoExtraBold.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjo/NanumMyeongjoExtraBold.ttf) format("truetype");
+    src: url(../../fonts/NanumMyeongjoExtraBold.eot);
+    src: url(../../fonts/NanumMyeongjoExtraBold.eot) format("embedded-opentype"), url(../../fonts/NanumMyeongjoExtraBold.woff) format("woff"), url(../../fonts/NanumMyeongjoExtraBold.ttf) format("truetype");
     font-style: normal;
     font-weight: 800;
     unicode-range: U+0-10FFF, U+4E00-9FBF;
@@ -7795,7 +7795,7 @@ aside.list-box:not(:last-of-type) {
  
 @font-face {
     font-family: 'BonmyeongjoSourceHanSerif';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff');
+    src: url('../../fonts/NotoSerifKR.woff') format('woff');
     font-weight: normal;
     font-display: swap;
 }

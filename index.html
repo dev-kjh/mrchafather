@@ -19,9 +19,9 @@
     <script src="resources/js/vendor/slick.min.js?v=20261219_1122"></script>
 
     <link href="resources/css/vender/swiper-8.3.1.css?v=20261219_1122" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/vender/slick.css" />
+    <link rel="stylesheet" href="resources/css/vender/xeicon.min.css">
+    <!-- 정적 배포: slick.min.js 는 위 resources/js/vendor/slick.min.js 로컬본을 사용(중복 CDN 제거) -->
 
     <!-- og:tag (GitHub Pages 배포 기준) -->
     <meta property="og:type" content="website">
@@ -119,7 +119,7 @@
 </script> -->
 
 <!-- 노희원 추가 2025-08-24 발인 안내 시간 시 화환 주문 불가 -->
-<script type="text/javascript" src="//developers.band.us/js/share/band-button.js?v=08052025"></script>
+<!-- 정적 배포: 네이버 밴드 공유 SDK 제거 (밴드 공유는 band.us 링크로 처리) -->
 
 
 <body class="n_bugo
@@ -426,24 +426,10 @@
         <!-- onclick="window.open('/page/shop/detail.php?hall=1284&ob=329531&mn=2777333','_blank')" -->
         <!-- bottom fixed -->
     <script>
+        // 정적 배포: 계좌 조회 API(ajax_funeral_account_load.php) 제거.
+        // 부의금 버튼은 계좌번호 없이 정적 안내 모달(2)만 엽니다.
         function load_account() {
-            var ajax = {
-                type: "POST",
-                url: "/page/ajax/funeral/ajax_funeral_account_load.php",
-                data: {
-                    view: 'MzI5NTMx',
-                    url: '_=MzI5NTMx&_m=2777333'
-                },
-                dataType: "html",
-                success: function(res) {
-                    $("#account_area").html(res);
-                    funeral_modal_open(2);
-                },
-                err: function(err) {
-                    ajax_basic_error(err);
-                }
-            }
-            $.ajax(ajax);
+            funeral_modal_open(2);
         }
     </script>
     <!-- modal-bg1 -->
@@ -459,8 +445,8 @@
                         <i class="xi-kakaotalk" style="font-size:3rem;" style="border-radius: 10px; background-color: #ffdc00;"></i>
                         <span>카카오톡 메세지로 보내기</span>
                     </button>
-                    <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0f37e5f34b22b4b444cc50b38aceb2b3&libraries=services"></script> -->
-                    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+                    <!-- 정적 배포: 카카오 SDK 제거. 카카오 기능은 '지원하지 않는 기능'으로 처리되므로 무해한 로컬 스텁으로 대체 -->
+                    <script>window.Kakao={init:function(){},isInitialized:function(){return true;},Share:{createCustomButton:function(){},createDefaultButton:function(){}},Link:{createDefaultButton:function(){}},Navi:{start:function(){alert('지원하지 않는 기능입니다.');}}};</script>
                     <button class="__flex __items-center btn" onclick="sms_call();">
                         <i class="round __flex-center">
                             <object data="resources/images/bugo/ico-letter.svg" width="50" height="50"></object>
@@ -754,24 +740,9 @@
             if (!confirm("해당 번호로 전송합니까?")) {
                 return false;
             }
-            var ajax = {
-                type: "POST",
-                url: "/page/ajax/funeral/ajax_funeral_sms_send_account.php",
-                data: {
-                    num: $("#copycontact").val(),
-                    arr: JSON.parse($("#copydatatosend").text()),
-                    sms: sms
-                },
-                dataType: "json",
-                success: function(res) {
-                    // 문자로 전송되었습니다. 2025-08-28 노희원
-                    alert("전송되었습니다.")
-                },
-                err: function(err) {
-                    ajax_basic_error(err);
-                }
-            }
-            $.ajax(ajax);
+            // 정적 배포: 계좌 문자 발송 API(ajax_funeral_sms_send_account.php) 제거
+            alert('지원하지 않는 기능입니다.');
+            return false;
         }
 
         $(document).on('click', "[copyband]", function() {
@@ -921,49 +892,8 @@
             window.open("https://band.us/plugin/share?body=" + encodeURIComponent(bandBody));
         }
 
-        function load_comments(page) {
-            var ajax = {
-                type: "POST",
-                url: "/page/ajax/funeral/ajax_funeral_comment_load.php",
-                data: {
-                    page: page,
-                    view: 'MzI5NTMx',
-                    version: 2
-                },
-                dataType: "json",
-                success: function(res) {
-                    $("#commentHtml").html(res.html);
-                    $("#commentCount").text(res.total > 0 ? "(" + res.total + ")" : "");
-                },
-                err: function(err) {
-                    ajax_basic_error(err);
-                }
-            }
-            $.ajax(ajax);
-        }
-
-        function load_orders(page) {
-            var ajax = {
-                type: "POST",
-                url: "/page/ajax/funeral/ajax_funeral_order_load.php",
-                data: {
-                    page: page,
-                    view: 'MzI5NTMx'
-                },
-                dataType: "json",
-                success: function(res) {
-                    $("#orderHtml").html(res.html);
-                    $("#orderCount").text(res.total > 0 ? "(" + res.total + ")" : "");
-                },
-                err: function(err) {
-                    ajax_basic_error(err);
-                }
-            }
-            $.ajax(ajax);
-        }
-        $(document).ready(function() {
-            /* 정적 배포: 동적 조문/근조화환 목록(PHP AJAX) 비활성화 */
-        });
+        // 정적 배포: 조문/근조화환 목록 로드 API(comment_load.php / order_load.php) 제거.
+        // load_comments / load_orders 는 페이지 하단의 로컬 페이징 스크립트(data/*.json)에서 재정의됩니다.
 
         // 뒤로가기 발생 시 처리
         window.onpopstate = function(e) {
@@ -1036,7 +966,8 @@
         }
         function renderPagin(items, page, fn){
             var pages=Math.ceil(items.length/PAGE_SIZE);
-            if(pages<=1) return '';
+            if(items.length===0) return '';   // 원본과 동일: 항목이 1개(1페이지)여도 페이지 번호 표시
+            if(pages<1) pages=1;
             var a='';
             for(var i=1;i<=pages;i++){
                 a+='<a href="javascript:void(0);" class="__flex __flex-center num'+(i===page?' on':'')+'" onclick="'+fn+'('+i+')">'+i+'</a>';
