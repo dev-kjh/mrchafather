@@ -371,7 +371,7 @@
                     <p>조문 메시지 <span id="commentCount">(8)</span></p>
                     <a href="javascript:void(0);" 
                         class="__flex __items-center __gap-5 btn msg-btn" 
-                        onclick="alert('조문 메시지 작성은 원본 부고 서비스에서만 가능합니다.'); return false;">
+                        onclick="alert('지원하지 않는 기능입니다.'); return false;">
                         <i class="circle __flex-center">
                             <object data="resources/images/bugo/ico-s-write.svg" width="15" height="15" class="filter-white"></object>
                         </i>
@@ -509,7 +509,7 @@
             </header>
             <div class="content __scroll-wrap">
                 <div class="__flex-column map-btns">
-                                        <button class="__flex __items-center btn" id="sendKakao" onclick="alert('현재 지원하지 않습니다.'); return false;">
+                                        <button class="__flex __items-center btn" id="sendKakao" onclick="alert('지원하지 않는 기능입니다.'); return false;">
                         <i class="xi-kakaotalk" style="font-size:3rem;" style="border-radius: 10px; background-color: #ffdc00;"></i>
                         <span>카카오톡 메세지로 보내기</span>
                     </button>
@@ -876,7 +876,7 @@
         // 정적 배포: 카카오톡 공유/카카오네비는 도메인 종속으로 미지원 → 안내 처리
         try {
             Kakao.Share = { createCustomButton: function(){}, createDefaultButton: function(){} };
-            Kakao.Navi = { start: function(){ alert('현재 지원하지 않습니다.'); } };
+            Kakao.Navi = { start: function(){ alert('지원하지 않는 기능입니다.'); } };
         } catch (e) {}
         const SHARE_TYPE = 0; // 0=카드, 1=텍스트
         const MOURNER_IDX = "2777333"; // 상주 idx (= _m)
