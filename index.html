@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <!-- og:tag - og:url은 wooribugo4, og:image는 wooribugo3 (이미지 접근 이슈 임시 대응) -->
+    <!-- og:tag (GitHub Pages 배포 기준) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dev-kjh.github.io/mrchafather/">
     <meta property="og:title" content="故 차병호님">
@@ -76,14 +76,18 @@
                 <p>보내주신 따뜻한 위로에 진심으로 감사드립니다.</p>
             </div>
             <div class="__flex __flex-center btns">
-                <button type="button" class="btn __flex __flex-center close-btn" onclick="$('#modal-bg9').fadeOut(); history.back(); ">
+                <button type="button" class="btn __flex __flex-center close-btn" onclick="$('#modal-bg9').fadeOut(); /* history.back(); */ ">
                     <i class="xi-close-circle-o" style="vertical-align: bottom"></i>
                     <span>화면 닫기</span>
                 </button>
             </div>
         </section>
     </div>
-    <!-- 정적 배포: '발인된 부고장' 자동 팝업 비활성화 (근조화환 버튼으로는 계속 열림) -->
+    <script>
+        $(document).ready(function() {
+            funeral_modal_open(9);
+        });
+    </script>
     <div class="modal-bg" id="modal-bg12">
         <section class="modal-wrap __base_wrap max-w-xs __flex __flex-column">
             <header class="__flex header">
@@ -351,24 +355,16 @@
         <!-- 근조화환 보내신 분 -->
         <section class="area">
             <header class="header">
-                <h2 class="line-hn __font-gowun-b">근조화환 보내신 분<span id="orderCount">(1)</span></h2>
+                <h2 class="line-hn __font-gowun-b">근조화환 보내신 분<span id="orderCount"></span></h2>
             </header>
-            <ul class="txt-list __base_wrap __flex-column" id="orderHtml">
-<li class="__flex __flex-wrap">
-            <p class="tit">삼가 故人의 冥福을 빕니다</p>
-            <div class="__flex-between info">
-                <b class="athor">주식회사  덕빛 대표 유춘례</b>
-                <span class="date">2026-06-28</span>
-            </div>
-        </li>
-</ul>
+            <ul class="txt-list __base_wrap __flex-column" id="orderHtml"></ul>
         </section>
         <!-- //근조화환 보내신 분 -->
         <!-- 조문 메시지 -->
                 <section class="area">
             <header class="header ">
                 <h2 class="line-hn __font-gowun-b __flex-center __gap-10">
-                    <p>조문 메시지 <span id="commentCount">(8)</span></p>
+                    <p>조문 메시지 <span id="commentCount"></span></p>
                     <a href="javascript:void(0);" 
                         class="__flex __items-center __gap-5 btn msg-btn" 
                         onclick="alert('지원하지 않는 기능입니다.'); return false;">
@@ -388,57 +384,7 @@
                     <span style="text-indent: 0.5em;">조문글 작성하기</span>
                 </a>
             </div> -->
-            <ul class="txt-list __base_wrap __flex-column" id="commentHtml">
-<li class="__flex __flex-wrap">
-                <p class="tit">아빠 사랑해</p>
-                <div class="__flex-between info">
-                    <b class="athor">딸</b>
-                    <span class="date">2026-06-30</span>
-                </div>
-            </li><li class="__flex __flex-wrap">
-                <p class="tit">사랑하는 친구 병호야...</p>
-                <div class="__flex-between info">
-                    <b class="athor">박헌석</b>
-                    <span class="date">2026-06-29</span>
-                </div>
-            </li><li class="__flex __flex-wrap">
-                <p class="tit">친구여 고맙고 미안하다.......</p>
-                <div class="__flex-between info">
-                    <b class="athor">두메회 일동</b>
-                    <span class="date">2026-06-29</span>
-                </div>
-            </li><li class="__flex __flex-wrap">
-                <p class="tit">아! 친구야•••</p>
-                <div class="__flex-between info">
-                    <b class="athor">심현보</b>
-                    <span class="date">2026-06-28</span>
-                </div>
-            </li><li class="__flex __flex-wrap">
-                <p class="tit">2층에 사는동안 감사 했습니다...</p>
-                <div class="__flex-between info">
-                    <b class="athor">김용주</b>
-                    <span class="date">2026-06-28</span>
-                </div>
-            </li><li class="__flex __flex-wrap">
-                <p class="tit">고인의 명복을 빕니다.</p>
-                <div class="__flex-between info">
-                    <b class="athor">한상구</b>
-                    <span class="date">2026-06-28</span>
-                </div>
-            </li><li class="__flex __flex-wrap">
-                <p class="tit">동지여!...</p>
-                <div class="__flex-between info">
-                    <b class="athor">박문성</b>
-                    <span class="date">2026-06-28</span>
-                </div>
-            </li><li class="__flex __flex-wrap">
-                <p class="tit">고인의 명복을 빕니다</p>
-                <div class="__flex-between info">
-                    <b class="athor">변영수</b>
-                    <span class="date">2026-06-28</span>
-                </div>
-            </li>
-</ul>
+            <ul class="txt-list __base_wrap __flex-column" id="commentHtml"></ul>
         </section>
                 <!-- //조문 메시지 -->
 
@@ -755,7 +701,7 @@
             copy($("#copytarget_addr").text());
         });
         $(document).on('click', "#copyurl", function() {
-            copy("https://www.wooribugo4.com/page/funeral/view.php?_=MzI5NTMx&_m=2777333");
+            copy("https://dev-kjh.github.io/mrchafather/");
         });
 
         function get_copydata(key, array = false) {
@@ -831,7 +777,7 @@
         $(document).on('click', "[copyband]", function() {
             var key = $(this).attr("copyband");
             var txt = get_copydata(key);
-            window.open("https://band.us/plugin/share?body=" + txt + "&route=https://www.wooribugo4.com");
+            window.open("https://band.us/plugin/share?body=" + txt + "&route=https://dev-kjh.github.io/mrchafather");
         })
 
         function copy(txt) {
@@ -859,9 +805,9 @@
                 //아이폰, 안드로이드 외
                 u += "?body=";
             }
-                        // var msg = "▶부고◀%0D%0A김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps://www.wooribugo4.com/page/funeral/view.php?uri=P189TXpJNU5UTXgmX209Mjc3NzMzMw==%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A";
+                        // var msg = "▶부고◀%0D%0A김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps://dev-kjh.github.io/mrchafather/%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A";
 
-            var msg = "▶부고◀%0D%0A김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps:\/\/www.wooribugo4.com\/page\/funeral\/view.php?uri=P189TXpJNU5UTXgmX209Mjc3NzMzMw==%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A";
+            var msg = "▶부고◀%0D%0A김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps:\/\/dev-kjh.github.io\/mrchafather\/%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A";
 
 
             if (gettext) {
@@ -880,10 +826,10 @@
         } catch (e) {}
         const SHARE_TYPE = 0; // 0=카드, 1=텍스트
         const MOURNER_IDX = "2777333"; // 상주 idx (= _m)
-        const BASE_URL = "https:\/\/www.wooribugo4.com\/page\/funeral\/view.php?uri=P189TXpJNU5UTXgmX209Mjc3NzMzMw==";
+        const BASE_URL = "https:\/\/dev-kjh.github.io\/mrchafather\/";
         const HALL_NAME = "양평장례식장";
-        const SMS_TEXT = "김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps:\/\/www.wooribugo4.com\/page\/funeral\/view.php?uri=P189TXpJNU5UTXgmX209Mjc3NzMzMw==%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A";
-        const KAKAO_TEXT = "김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps:\/\/www.wooribugo4.com\/page\/funeral\/view.php?uri=P189TXpJNU5UTXgmX209Mjc3NzMzMw==%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A";
+        const SMS_TEXT = "김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps:\/\/dev-kjh.github.io\/mrchafather\/%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A";
+        const KAKAO_TEXT = "김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps:\/\/dev-kjh.github.io\/mrchafather\/%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A";
         const KAKAO_TEXT_NL = (KAKAO_TEXT || '').replace(/%0D%0A|%0A|%0D/gi, "\n");
         const TEMPLATE_ID = 129633;
 
@@ -916,7 +862,7 @@
 
         if (PARTNER_LOGO !== '') {
             var logoVer = PARTNER_LOGO_VER ? '?v=' + PARTNER_LOGO_VER : '';
-            var partnerLogoUrl = 'https://www.wooribugo3.com' + PARTNER_LOGO + logoVer;
+            var partnerLogoUrl = '' + PARTNER_LOGO + logoVer;
             
             // PATH를 ?uri=base64 형태가 아닌 깔끔한 형태로 새로 생성
             var cleanPath = 'page/funeral/view.php?_=' + encodeURIComponent('MzI5NTMx');
@@ -971,7 +917,7 @@
         /* ============================================================ */
 
         function shareBand() {
-            var bandBody = "[부고 안내] 김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps:\/\/www.wooribugo4.com\/page\/funeral\/view.php?uri=P189TXpJNU5UTXgmX209Mjc3NzMzMw==%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A https:\/\/www.wooribugo4.com\/page\/funeral\/view.php?uri=P189TXpJNU5UTXgmX209Mjc3NzMzMw==";
+            var bandBody = "[부고 안내] 김정훈의 장인 故 차병호님께서 별세 하셨기에 아래와 같이 부고를 전해 드립니다.%0D%0A%0D%0A▶ 김정훈 [사위] 드림 ◀%0D%0A%0D%0A일일이 연락드리지 못함을 부디 혜량해 주시길 바라오며 아래의 모바일 부고장으로 부고를 알려드립니다.%0D%0A%0D%0A■모바일부고장■%0D%0Ahttps:\/\/dev-kjh.github.io\/mrchafather\/%0D%0A%0D%0A배우자%0D%0A정다연%0D%0A상주%0D%0A차지원%0D%0A딸%0D%0A차현주%0D%0A자부%0D%0A김국진%0D%0A사위%0D%0A김정훈%0D%0A https:\/\/dev-kjh.github.io\/mrchafather\/";
             window.open("https://band.us/plugin/share?body=" + encodeURIComponent(bandBody));
         }
 
@@ -1069,6 +1015,52 @@
             }
         }
 
+    </script>
+    <!-- 정적 배포: 조문/근조화환은 서버 대신 별도 JSON(data/*.json)에서 로드하고 원본과 동일하게 페이징 -->
+    <script>
+    (function () {
+        var PAGE_SIZE = 5;
+        var COMMENTS = null, WREATHS = null;
+        function esc(s){ return String(s).replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+        function renderList(items, page){
+            var start=(page-1)*PAGE_SIZE;
+            return items.slice(start, start+PAGE_SIZE).map(function(it){
+                return '<li class="__flex __flex-wrap">'+
+                    '<p class="tit">'+esc(it.tit)+'</p>'+
+                    '<div class="__flex-between info">'+
+                        '<b class="athor">'+esc(it.athor)+'</b>'+
+                        '<span class="date">'+esc(it.date)+'</span>'+
+                    '</div>'+
+                '</li>';
+            }).join('');
+        }
+        function renderPagin(items, page, fn){
+            var pages=Math.ceil(items.length/PAGE_SIZE);
+            if(pages<=1) return '';
+            var a='';
+            for(var i=1;i<=pages;i++){
+                a+='<a href="javascript:void(0);" class="__flex __flex-center num'+(i===page?' on':'')+'" onclick="'+fn+'('+i+')">'+i+'</a>';
+            }
+            return '<div class="__flex __flex-center pagin-nav"><div class="__flex __flex-center num-box">'+a+'</div></div>';
+        }
+        window.load_comments = function(page){
+            if(!COMMENTS) return;
+            document.getElementById('commentHtml').innerHTML = renderList(COMMENTS,page)+renderPagin(COMMENTS,page,'load_comments');
+            document.getElementById('commentCount').textContent = COMMENTS.length>0 ? '('+COMMENTS.length+')' : '';
+        };
+        window.load_orders = function(page){
+            if(!WREATHS) return;
+            document.getElementById('orderHtml').innerHTML = renderList(WREATHS,page)+renderPagin(WREATHS,page,'load_orders');
+            document.getElementById('orderCount').textContent = WREATHS.length>0 ? '('+WREATHS.length+')' : '';
+        };
+        function load(url, cb){
+            fetch(url).then(function(r){ return r.json(); }).then(cb).catch(function(){});
+        }
+        document.addEventListener('DOMContentLoaded', function(){
+            load('data/comments.json', function(d){ COMMENTS=d; load_comments(1); });
+            load('data/wreaths.json', function(d){ WREATHS=d; load_orders(1); });
+        });
+    })();
     </script>
 </body>
 
