@@ -1,0 +1,52 @@
+#!/bin/sh
+# -----------------------------------------------------------------------------
+# 커밋 전 민감정보(PII/시크릿) 자동 점검 훅
+# 활성화: git config core.hooksPath .githooks  (README/CLAUDE.md 참고)
+# 우회(의도적 포함 시): git commit --no-verify
+# -----------------------------------------------------------------------------
+
+# 허용목록(오탐 방지): 장례식장 대표번호, 지도 좌표 등 의도적으로 유지하는 값
+ALLOW='031-772-1024|127\.504372612934|37\.4972475659042'
+
+# 검사할 고위험 패턴
+#  - 휴대폰(010/011/016/017/018/019)
+#  - 주민등록번호
+#  - 이메일
+#  - 카카오 등 32자리 hex 앱키 / appkey= / api_key / secret / password
+PATTERN='01[016789][-. )]?[0-9]{3,4}[-. )]?[0-9]{4}'
+PATTERN="$PATTERN"'|[0-9]{6}-[1-4][0-9]{6}'
+PATTERN="$PATTERN"'|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
+PATTERN="$PATTERN"'|[a-f0-9]{32}'
+PATTERN="$PATTERN"'|appkey=[A-Za-z0-9]+|api[_-]?key|secret|password'
+
+FOUND=0
+files=$(git diff --cached --name-only --diff-filter=ACM)
+for f in $files; do
+  case "$f" in
+    # 바이너리/폰트/이미지 제외
+    *.woff|*.woff2|*.ttf|*.otf|*.eot|*.svg|*.png|*.jpg|*.jpeg|*.gif|*.ico) continue ;;
+    # 서드파티 라이브러리 제외
+    resources/js/default/*|resources/js/vender/*|resources/js/vendor/*|resources/css/vender/*) continue ;;
+    # 훅 자신 제외
+    .githooks/*) continue ;;
+  esac
+
+  hits=$(git show ":$f" 2>/dev/null | grep -nEi "$PATTERN" | grep -vE "$ALLOW")
+  if [ -n "$hits" ]; then
+    echo "⚠  민감정보 의심 발견: $f"
+    echo "$hits" | sed 's/^/     /'
+    FOUND=1
+  fi
+done
+
+if [ "$FOUND" = "1" ]; then
+  echo ""
+  echo "──────────────────────────────────────────────────────────────"
+  echo " 커밋이 차단되었습니다. 위 항목이 실제 민감정보인지 확인하세요."
+  echo "  • 민감정보면: 제거/마스킹 후 다시 커밋"
+  echo "  • 의도적으로 유지할 값이면: 훅의 ALLOW 목록에 추가"
+  echo "  • 오탐이 확실하면: git commit --no-verify 로 우회"
+  echo "──────────────────────────────────────────────────────────────"
+  exit 1
+fi
+exit 0

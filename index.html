@@ -789,7 +789,7 @@
             }
             // location.href = u + "[부고 안내] 차병호님께서 -0001년 11월 30일 별세하셨기에 삼가 알려드립니다. ";
         }
-        Kakao.init('edbba9dadc72baa762536606e60eba0f');
+        Kakao.init();  // 정적 배포: 카카오 SDK 제거·스텁 대체로 앱키 불필요(원본 앱키 삭제)
         // 정적 배포: 카카오톡 공유/카카오네비는 도메인 종속으로 미지원 → 안내 처리
         try {
             Kakao.Share = { createCustomButton: function(){}, createDefaultButton: function(){} };
