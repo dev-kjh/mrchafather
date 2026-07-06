@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" viewBox="0 0 15 15">
+  <defs>
+    <clipPath id="clip-ico-s-link">
+      <rect width="15" height="15"/>
+    </clipPath>
+  </defs>
+  <g id="ico-s-link" clip-path="url(#clip-ico-s-link)">
+    <path id="_8726081_link_h_icon" data-name="8726081_link_h_icon" d="M6.8,11a.8.8,0,0,0,.8.8h4.8a.8.8,0,1,0,0-1.6H7.6A.8.8,0,0,0,6.8,11Zm1.6,2.4H6A2.4,2.4,0,0,1,6,8.6H8.4A.8.8,0,0,0,8.4,7H6a4,4,0,1,0,0,8H8.4a.8.8,0,1,0,0-1.6ZM14,7H11.6a.8.8,0,0,0,0,1.6H14a2.4,2.4,0,0,1,0,4.8H11.6a.8.8,0,1,0,0,1.6H14a4,4,0,0,0,0-8Z" transform="translate(-7.364 6.778) rotate(-45)" fill="#f5f5f5"/>
+  </g>
+</svg>
