@@ -7864,7 +7864,7 @@ aside.list-box:not(:last-of-type) {
 
 
 .n_bugo.skin5 .intro .inner_wrap {
-    background: url("../../images/bugo/bugo_005_intro_bg.png) no-repeat center / cover;
+    background: url(../../images/bugo/bugo_005_intro_bg.png) no-repeat center / cover;
 }
 
 
@@ -8679,7 +8679,7 @@ aside.list-box:not(:last-of-type) {
 .send_pg .radio-wrap.gallery .sub_title_detail {
     width: 20px;
     height: 20px;
-    background: transparent url("../../images/common/ico_check_off.svg) no-repeat;
+    background: transparent url(../../images/common/ico_check_off.svg) no-repeat;
     background-size: contain;
     vertical-align: middle;
     margin-right: 8px;
@@ -8687,7 +8687,7 @@ aside.list-box:not(:last-of-type) {
 
 
 .send_pg .radio-wrap.gallery .radio-input:checked+.radio-label .sub_title_detail {
-    background-image: url("../../images/common/ico_check_on.svg);
+    background-image: url(../../images/common/ico_check_on.svg);
 }
 
 .bugo_image .step {
@@ -9504,7 +9504,7 @@ aside.list-box:not(:last-of-type) {
 
     select {
         padding: 5px;
-        background: #FFF url("../../images/common/select_arrow.svg) no-repeat calc(100% - 10px) center / 15px auto;
+        background: #FFF url(../../images/common/select_arrow.svg) no-repeat calc(100% - 10px) center / 15px auto;
     }
 
 }
@@ -10393,7 +10393,7 @@ section.popup_v2.modal-wrap {
     position: relative;
     /* padding-top: 50px; */
     padding-top: 20px;
-    background: url("../../images/bugo/obituary_visual.jpg) no-repeat center / cover;
+    background: url(../../images/bugo/obituary_visual.jpg) no-repeat center / cover;
     transform: translateY(-40px);
 }
 
